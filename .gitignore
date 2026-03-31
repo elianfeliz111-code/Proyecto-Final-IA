@@ -1,0 +1,70 @@
+# ============================================================
+# Nombre:    Elian Desiderio Feliz Martinez
+# Matricula: 24-EISN-2-041
+# Archivo:   .gitignore
+# ============================================================
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Entornos virtuales
+venv/
+env/
+.venv/
+.env/
+
+# Jupyter (no se usa en este proyecto, pero por si acaso)
+.ipynb_checkpoints/
+*.ipynb
+
+# Modelos entrenados (archivos grandes — usar Git LFS si es necesario)
+models/*.pth
+models/*.pt
+models/*.ckpt
+
+# Dataset (muy pesado para GitHub)
+data/raw/
+data/train/
+data/val/
+data/test/
+*.zip
+*.tar.gz
+
+# Gradio caché
+gradio_cached_examples/
+*.gradio/
+
+# Logs
+logs/
+runs/
+*.log
+*.out
+
+# Configuraciones de IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
