@@ -1,8 +1,5 @@
 # ============================================================
 # Nombre:    Elian Desiderio Feliz Martinez
 # Matricula: 24-EISN-2-041
-# Archivo:   requirements.txt
+# Archivo:   utils.py
 # ============================================================
-
-torch
-torchvision
