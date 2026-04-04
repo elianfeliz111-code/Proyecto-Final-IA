@@ -46,3 +46,29 @@ CLASS_NAMES = [
     "Tomato___Tomato_mosaic_virus",
     "Tomato___healthy",
 ]
+
+# Valores de normalizacion estandar de ImageNet
+# El modelo fue pre-entrenado con estos valores
+IMAGENET_MEAN = [0.485, 0.456, 0.406]
+IMAGENET_STD  = [0.229, 0.224, 0.225]
+
+# Transformacion para cuando el modelo va a predecir
+inference_transform = transforms.Compose([
+    transforms.Resize((256, 256)),
+    transforms.CenterCrop(224),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=IMAGENET_MEAN, std=IMAGENET_STD),
+])
+
+
+def preprocess_image(image: Image.Image) -> torch.Tensor:
+    """
+    Prepara una imagen PIL para pasarla al modelo.
+    Convierte a RGB, redimensiona y normaliza.
+    """
+    if image.mode != "RGB":
+        image = image.convert("RGB")
+
+    tensor = inference_transform(image)  # (3, 224, 224)
+    tensor = tensor.unsqueeze(0)         # (1, 3, 224, 224)
+    return tensor
